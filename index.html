@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 520px;
   margin: auto;
   padding: 20px;
 }
@@ -24,16 +24,16 @@ body {
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
 }
 
 h1 {
+  text-align: center;
   font-size: 22px;
-  margin-bottom: 15px;
 }
 
-p {
-  font-size: 18px;
+ul {
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 button {
@@ -46,17 +46,17 @@ button {
   cursor: pointer;
 }
 
-.yes {
+.red {
   background: #d32f2f;
   color: white;
 }
 
-.no {
+.green {
   background: #388e3c;
   color: white;
 }
 
-.next {
+.yellow {
   background: #fbc02d;
   color: black;
 }
@@ -65,12 +65,18 @@ button {
   color: #d32f2f;
   font-size: 22px;
   font-weight: bold;
+  text-align: center;
 }
 
 .result-green {
   color: #388e3c;
   font-size: 22px;
   font-weight: bold;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
 }
 </style>
 </head>
@@ -81,52 +87,62 @@ button {
 </div>
 
 <script>
-const steps = [
-  "¿Tu oxígeno está por debajo de 94%?",
-  "¿No puedes hablar frases completas?",
-  "¿Te ahogas incluso caminando por casa?",
-  "¿Tienes labios o dedos azulados?",
-  "¿Tienes dolor fuerte y opresivo en el pecho?",
-  "¿El inhalador NO te ha ayudado?"
-];
-
-let currentStep = 0;
 const app = document.getElementById("app");
 
-function showStep() {
+function showRedCriteria() {
   app.innerHTML = `
-    <h1>Semáforo del Asma</h1>
-    <p>${steps[currentStep]}</p>
-    <button class="yes" onclick="goUrgencias()">SÍ</button>
-    <button class="no" onclick="nextStep()">NO</button>
+    <h1>🔴 Señales de peligro</h1>
+    <p>¿Se cumple <strong>alguno</strong> de estos criterios?</p>
+    <ul>
+      <li>Oxígeno menor de 94%</li>
+      <li>No puedo hablar frases completas</li>
+      <li>Me ahogo incluso caminando por casa</li>
+      <li>Labios o dedos azulados</li>
+      <li>Dolor fuerte y opresivo en el pecho</li>
+      <li>La tos no me deja tumbarme</li>
+      <li>El inhalador NO me ayuda</li>
+    </ul>
+    <button class="red" onclick="showUrgencias()">SÍ, alguno se cumple</button>
+    <button class="green" onclick="showRevision()">NO, ninguno se cumple</button>
   `;
 }
 
-function goUrgencias() {
+function showRevision() {
   app.innerHTML = `
-    <h1 class="result-red">🔴 URGENCIAS</h1>
-    <p>Busca atención médica ahora mismo.</p>
-    <p>Si es necesario, llama al 112.</p>
-    <button class="yes" onclick="location.reload()">Volver a empezar</button>
+    <h1>🟡 Revisión</h1>
+    <ul>
+      <li>¿Puedo hablar frases completas?</li>
+      <li>¿Puedo caminar un poco por casa?</li>
+      <li>¿Oxígeno 94% o más?</li>
+    </ul>
+    <button class="green" onclick="showConsejos()">SÍ</button>
+    <button class="red" onclick="showUrgencias()">NO / estoy empeorando</button>
   `;
 }
 
-function nextStep() {
-  currentStep++;
-  if (currentStep < steps.length) {
-    showStep();
-  } else {
-    app.innerHTML = `
-      <h1 class="result-green">🟢 SEGURO QUEDARSE EN CASA</h1>
-      <p>Respira lento.</p>
-      <p>Usa tu inhalador como te indicó el médico.</p>
-      <p>Vuelve a revisar en 10–15 minutos.</p>
-      <button class="next" onclick="location.reload()">Volver a empezar</button>
-    `;
-  }
+function showUrgencias() {
+  app.innerHTML = `
+    <h1 class="result-red">🔴 ACUDIR A URGENCIAS</h1>
+    <p class="center">Busca atención médica ahora mismo.</p>
+    <p class="center">Si es necesario, llama al <strong>112</strong>.</p>
+    <button class="red" onclick="showRedCriteria()">Volver a empezar</button>
+  `;
 }
 
-showStep();
+function showConsejos() {
+  app.innerHTML = `
+    <h1 class="result-green">🟢 Manejo en casa</h1>
+    <ul>
+      <li>Uso mi inhalador como me indicó el médico</li>
+      <li>Me siento y suelto el aire despacio</li>
+      <li>Me digo:<br><em>“Esto es miedo, no peligro ahora”</em></li>
+      <li>⏱️ Espero 10–15 minutos</li>
+    </ul>
+    <button class="yellow" onclick="showRevision()">Volver a revisar</button>
+  `;
+}
+
+showRedCriteria();
 </script>
 </body>
 </html>
