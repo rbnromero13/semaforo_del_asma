@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semáforo del Asma</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 18px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.yes {
+  background: #d32f2f;
+  color: white;
+}
+
+.no {
+  background: #388e3c;
+  color: white;
+}
+
+.next {
+  background: #fbc02d;
+  color: black;
+}
+
+.result-red {
+  color: #d32f2f;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.result-green {
+  color: #388e3c;
+  font-size: 22px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+const steps = [
+  "¿Tu oxígeno está por debajo de 94%?",
+  "¿No puedes hablar frases completas?",
+  "¿Te ahogas incluso caminando por casa?",
+  "¿Tienes labios o dedos azulados?",
+  "¿Tienes dolor fuerte y opresivo en el pecho?",
+  "¿El inhalador NO te ha ayudado?"
+];
+
+let currentStep = 0;
+const app = document.getElementById("app");
+
+function showStep() {
+  app.innerHTML = `
+    <h1>Semáforo del Asma</h1>
+    <p>${steps[currentStep]}</p>
+    <button class="yes" onclick="goUrgencias()">SÍ</button>
+    <button class="no" onclick="nextStep()">NO</button>
+  `;
+}
+
+function goUrgencias() {
+  app.innerHTML = `
+    <h1 class="result-red">🔴 URGENCIAS</h1>
+    <p>Busca atención médica ahora mismo.</p>
+    <p>Si es necesario, llama al 112.</p>
+    <button class="yes" onclick="location.reload()">Volver a empezar</button>
+  `;
+}
+
+function nextStep() {
+  currentStep++;
+  if (currentStep < steps.length) {
+    showStep();
+  } else {
+    app.innerHTML = `
+      <h1 class="result-green">🟢 SEGURO QUEDARSE EN CASA</h1>
+      <p>Respira lento.</p>
+      <p>Usa tu inhalador como te indicó el médico.</p>
+      <p>Vuelve a revisar en 10–15 minutos.</p>
+      <button class="next" onclick="location.reload()">Volver a empezar</button>
+    `;
+  }
+}
+
+showStep();
+</script>
+</body>
+</html>
