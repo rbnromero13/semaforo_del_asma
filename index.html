@@ -132,15 +132,37 @@ function showUrgencias() {
 function showConsejos() {
   app.innerHTML = `
     <h1 class="result-green">🟢 Manejo en casa</h1>
+
     <ul>
-      <li>Uso mi inhalador como me indicó el médico</li>
-      <li>Me siento y suelto el aire despacio</li>
-      <li>Me digo:<br><em>“Esto es miedo, no peligro ahora”</em></li>
-      <li>⏱️ Espero 10–15 minutos</li>
+      <li>Me siento con la espalda apoyada</li>
+      <li>Suelto el aire lento por la boca</li>
+      <li>No intento coger mucho aire</li>
     </ul>
-    <button class="yellow" onclick="showRevision()">Volver a revisar</button>
+
+    <p><strong>Respiración (3–5 minutos)</strong></p>
+    <ul>
+      <li>Suelto el aire contando 5</li>
+      <li>Pausa 1 segundo</li>
+      <li>Repito</li>
+    </ul>
+
+    <p><strong>Pánico vs Peligro</strong></p>
+    <p><em>
+      Mi saturación de oxígeno es seguro.<br>
+      Mi ansiedad tiene un rol importante en mis sensaciones.<br>
+      No necesito huir de la situación para estar a salvo.
+    </em></p>
+
+    <ul>
+      <li>Uso mi inhalador/medicación como me indicó mi médico</li>
+       <li>Aplico mis estrategias para el manejo de la situación</li>
+      <li>⏱️ Espero 10–15 minutos y podemos volver a revisar</li>
+    </ul>
+
+    <button class="yellow" onclick="showRevision()">Volver a la revisión</button>
   `;
 }
+
 
 showRedCriteria();
 </script>
