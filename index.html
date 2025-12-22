@@ -159,9 +159,131 @@ function showConsejos() {
       <li>⏱️ Espero 10–15 minutos y podemos volver a revisar</li>
     </ul>
 
+    <button class="green" onclick="showPanico()">
+      Revisar signos de una crisis de ansiedad
+    </button>
+
     <button class="yellow" onclick="showRevision()">Volver a la revisión</button>
   `;
 }
+
+function showPanico() {
+  app.innerHTML = `
+    <h1>Signos de una crisis de pánico o ansiedad</h1>
+
+    <p>
+      Una crisis de pánico o ansiedad es una activación intensa del sistema nervioso.
+      Las sensaciones son muy reales y desagradables, pero
+      <strong>no son peligrosas ni ponen en riesgo la vida</strong>.
+    </p>
+
+    <h2>¿Qué suele disparar y mantener estas crisis?</h2>
+    <p>
+      Estas crisis pueden aparecer tras distintos detonantes, y a veces sin una causa clara.
+      Un detonante muy habitual es el <strong>miedo o rechazo a las propias sensaciones físicas</strong>
+      (por ejemplo, notar tos, sibilancias u opresión).
+    </p>
+
+    <p>
+      Al notar estas sensaciones, aparece el miedo.  
+      El miedo activa la ansiedad.  
+      La ansiedad intensifica las sensaciones corporales.
+    </p>
+
+    <p>
+      Para intentar aliviarlo, solemos luchar contra las sensaciones
+      (forzar la respiración, vigilar el cuerpo, querer que desaparezcan),
+      pero esto añade más estrés y hace que la ansiedad aumente.
+    </p>
+
+    <p><em>
+      No es que el cuerpo falle: es un círculo de miedo y activación.
+    </em></p>
+
+    <h3>1. Inicio brusco y rápido</h3>
+    <ul>
+      <li>Los síntomas aparecen de forma repentina</li>
+      <li>Suelen estar precedidos por sensaciones corporales que asustan</li>
+      <li>Alcanzan un pico en pocos minutos</li>
+      <li>La intensidad es muy alta al inicio</li>
+    </ul>
+
+    <h3>2. Sensación intensa de miedo</h3>
+    <ul>
+      <li>Miedo a morir, ahogarse o perder el control</li>
+      <li>Sensación de peligro o catástrofe inminente</li>
+    </ul>
+
+    <h3>3. Respiración alterada por ansiedad</h3>
+    <ul>
+      <li>Sensación de falta de aire aunque el aire entra</li>
+      <li>Respiración rápida o superficial</li>
+      <li>Hiperventilación</li>
+      <li>Empeora al intentar forzar la respiración</li>
+
+    </ul>
+
+    <p><em>
+      En el pánico, el problema es la percepción del aire,
+      no la obstrucción real de las vías respiratorias.
+    </em></p>
+
+    <h3>4. Síntomas corporales generales</h3>
+    <ul>
+      <li>Palpitaciones o corazón acelerado</li>
+      <li>Mareo o sensación de desmayo</li>
+      <li>Hormigueo en manos, pies o cara</li>
+      <li>Sudoración, temblores</li>
+      <li>Sensación de calor o frío</li>
+      <li>Tensión muscular</li>
+    </ul>
+
+    <h3>5. Sensaciones en el pecho y la garganta</h3>
+    <ul>
+      <li>Opresión o presión en el pecho</li>
+      <li>Sensación de nudo en la garganta</li>
+      <li>Aumentan cuanto más se vigilan</li>
+    </ul>
+
+    <h3>6. Hipervigilancia corporal</h3>
+    <ul>
+      <li>Atención constante a la respiración o al pecho</li>
+      <li>Interpretaciones catastróficas de las sensaciones físicas.
+        Por ejemplo;  me estoy muriendo, me van a ingresar, me van a intubar, etc...</li>
+    </ul>
+
+    <h3>7. Duración limitada</h3>
+    <ul>
+      <li>Puede durar entre pocos minutos y horas</li>
+      <li>Puede dejar cansancio posterior</li>
+      <li>Tiende a bajar cuando el miedo disminuye</li>
+      <li>Acaba desapareciendo por sí sola</li>
+    </ul>
+
+    <h3>8. Mejora cuando baja la ansiedad</h3>
+    <ul>
+      <li>Mejora con respiración lenta y sensación de seguridad</li>
+      <li>No depende del broncodilatador para desaparecer</li>
+      <li>Los medicamentos para el asma no ayudan, pero si el sentirse a salvo</li>
+    </ul>
+
+    <p><strong>Mensaje clave</strong></p>
+    <p><em>
+      Aunque una crisis de pánico se siente muy intensa,
+      no es peligrosa ni provoca asfixia real.<br>
+      Es una reacción del sistema nervioso al miedo,
+      no un fallo de los pulmones.
+      El problema, es que son sensaciones muy desagradables, 
+      por eso son tan dificiles de sobrellevar. 
+      Pero saber todo esto te ayudara a reducir el miedo y reducir la 
+      fuerza de la crisis, por lo que podrá desaparecer en menos tiempo. 
+      Pero recuerda que <strong>cuanto mas intentes evitar las sensaciones físicas, más intensa será la crisis</strong>.
+    </em></p>
+
+    <button class="green" onclick="showRedCriteria()">Volver al inicio</button>
+  `;
+}
+
 
 
 showRedCriteria();
